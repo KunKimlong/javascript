@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        marquee{
+            background-color: blue;
+            color: white;
+            padding: 10px 0;
+        }
+        button{
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        .left{
+            background-color: green;
+        }
+        .right{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <marquee behavior="" direction="right" scrollamount="20">
+        Welcome to ETEC CENTER
+    </marquee>
+    <div style="display: flex; justify-content: center;">
+        <button class="left">Left</button>
+        <button class="right">Right</button>
+    </div>
+
+    <script>    
+        var btnLeft = document.querySelector(".left");
+        var marquee = document.querySelector('marquee');
+        btnLeft.addEventListener("click",changeToLeft);
+        function changeToLeft(){
+            marquee.setAttribute("direction","left");
+        }
+    </script>
+</body>
+</html>

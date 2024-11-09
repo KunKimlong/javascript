@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: black;
+            margin: 0 auto;
+        }
+        .displayNone{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+    <button class="btnHide">Hide</button>
+    <button class="btnShow">show</button>
+    <button class="btnToggle">Toggle</button>
+
+    <script>
+        var btnHide = document.querySelector('.btnHide');
+        var btnShow = document.querySelector('.btnShow');
+        var btnToggle = document.querySelector('.btnToggle');
+        var box     = document.querySelector('.box');
+        btnHide.addEventListener('click',function(){
+            box.classList.add('displayNone');
+        })
+        btnShow.addEventListener('click',function(){
+            box.classList.remove('displayNone');
+        })
+        btnToggle.addEventListener('click',function(){      
+            if(box.classList.contains('displayNone')){
+                box.classList.remove('displayNone');
+            }else{
+                box.classList.add('displayNone');
+            }
+        })
+
+    </script>
+</body>
+</html>

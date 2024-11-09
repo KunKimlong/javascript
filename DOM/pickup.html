@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text{
+            text-align: center;
+            font-size: 45px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .btn-group{
+            display: flex;
+            justify-content: center;
+        }
+        button{
+            border: none;
+            font-size: 30px;
+            margin: 0 20px;
+            padding: 10px 20px;
+            color: white;
+            cursor: pointer;
+        }
+        .btnYes{
+            background-color: green;
+        }
+        .btnNo{
+            background-color: red;
+            position: absolute;
+            left: calc(50% + 40px);
+            z-index: 4;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text">Do you love me ?</h1>
+    <div class="btn-group">
+        <button class="btnYes">Yes</button>
+        <button class="btnNo">No</button>
+    </div>
+
+    <script>
+        var btnNo = document.querySelector('.btnNo');
+        var btnYes = document.querySelector('.btnYes');
+        var text  = document.querySelector('.text');
+        btnNo.addEventListener('mouseover',function(){
+            console.log(Math.floor(Math.random()));
+            
+            var leftRandom = Math.floor(Math.random() * 101);
+            var topRandom = Math.floor(Math.random() * 101);        
+            btnNo.style.left = leftRandom+"%";
+            btnNo.style.top = topRandom+"%";
+        });
+        btnYes.addEventListener('click',function(){
+            text.innerHTML = "I Love you too ❤️";
+        });
+    </script>
+</body>
+</html>
