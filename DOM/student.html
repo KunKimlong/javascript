@@ -25,6 +25,9 @@
                 </div>
                 <div class="modal-body">
                     <form action="" name="myForm">
+
+                        <input type="hidden" name="" id="index-txt">
+
                         <label for="id-txt" class="my-2">ID:</label>
                         <input type="text" id="id-txt" class="form-control" placeholder="ID">
                         <label for="" class="my-2">Name:</label>
@@ -55,13 +58,14 @@
                         <label for="" class="my-2">Grade:</label>
                         <input type="text" name="" id="grade" disabled class="form-control" placeholder="Grade">
                         <button type="button" id="btn-submit" class="btn btn-outline-success my-2">Submit</button>
+                        <button type="button" id="btn-update" class="btn btn-outline-warning my-2">Update</button>
                         <button type="reset" id="btn-reset" class="btn btn-outline-warning my-2">Clear</button>
                     </form>
                 </div>
             </div>
             </div>
         </div>
-        <table class="table table-dark table-hover-text-center">
+        <table class="table table-dark table-hover-text-center text-center">
            <thead>
             <tr>
                 <th>N<sup>o</sup></th>
@@ -75,6 +79,7 @@
                 <th>Total Score</th>
                 <th>Average</th>
                 <th>Grade</th>
+                <th>Action</th>
             </tr>
            </thead>
            <tbody id="showStudent">
@@ -82,6 +87,27 @@
            </tbody>
         </table>
     </div>
+    
+
+  <div class="modal fade" id="modleDete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Delete</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h4 delete_value="" id="h4-delete">
+            Are you sure that you want to delete ?
+          </h4>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" id="btn-delete">Yes</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 <script src="student.js"></script>
 </html>

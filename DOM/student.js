@@ -39,7 +39,7 @@ const students = [
         id:"EC001",
         name:"Sok Dara",
         gender:"Male",
-        course:"Web Desgin",
+        course:"Web Backend",
         assScore:90,
         attScore:90,
         examScore:90,
@@ -50,8 +50,8 @@ const students = [
     {
         id:"EC002",
         name:"Sok Mesa",
-        course:"Web Design",
-        gender:"Male",
+        course:"Web Backend",
+        gender:"Female",
         assScore:90,
         attScore:90,
         examScore:90,
@@ -78,6 +78,10 @@ function displayStudent(){
                 <td>${value.totalScore}</td>
                 <td>${value.average}</td>
                 <td>${value.grade}</td>
+                <td>
+                    <button data-bs-toggle="modal" onclick="showUpdate(${index})" id="btn-show-update" data-bs-target="#exampleModal" class="btn btn-outline-warning">Update</button>
+                    <button class="btn btn-outline-danger" onclick="openDelete(${index})" data-bs-toggle="modal" data-bs-target="#modleDete">Delete</button>
+                </td>
             </tr>
         `;
     })
@@ -126,4 +130,57 @@ btnSubmit.addEventListener('click',function(){
 
     displayStudent();
     btnReset.click();
+})
+var btnUpdate = document.getElementById('btn-update');
+function showUpdate(index){
+
+    if(students[index].gender == "Male"){
+        genderTxt[0].setAttribute('checked','checked')
+    }
+    else{
+        genderTxt[1].setAttribute('checked','checked')
+    }
+    document.getElementById('index-txt').value = index
+    idTxt.value = students[index].id;
+    nameTxt.value = students[index].name
+    course.value = students[index].course
+    ass_score.value = students[index].assScore
+    att_score.value = students[index].attScore
+    exam_score.value = students[index].examScore
+    total_score.value = students[index].totalScore
+    average.value = students[index].average
+    grade.value = students[index].grade
+}
+
+btnUpdate.addEventListener('click',function(){
+    var index = document.getElementById('index-txt').value;
+    var gender = '';
+    if(genderTxt[0].checked){
+        gender = genderTxt[0].value
+    }
+    else{
+        gender = genderTxt[1].value
+    }
+    students[index].id = idTxt.value;
+    students[index].gender = gender;
+    students[index].name = nameTxt.value;
+    students[index].course = course.value;
+    students[index].assScore = ass_score.value;
+    students[index].attScore = att_score.value;
+    students[index].examScore = exam_score.value;
+    students[index].totalScore = totalScore.value;
+    students[index].average = average.value;
+    students[index].grade = grade.value;
+
+    displayStudent();
+});
+
+function openDelete(index){
+    document.getElementById('h4-delete').setAttribute('delete_value',index);
+}
+
+document.getElementById('btn-delete').addEventListener('click',function(){
+    var index = document.getElementById('h4-delete').getAttribute('delete_value');
+    students.splice(index,1);
+    displayStudent();
 })
